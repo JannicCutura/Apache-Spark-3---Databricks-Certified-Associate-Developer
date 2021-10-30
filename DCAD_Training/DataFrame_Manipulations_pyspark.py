@@ -390,7 +390,7 @@ customerWithAddr.count()
 
 # COMMAND ----------
 
-customerWithAddr.rdd.StorageLevel()
+customerWithAddr.rdd.getStorageLevel()
 
 # COMMAND ----------
 
@@ -398,15 +398,7 @@ customerWithAddr.unpersist().count()
 
 # COMMAND ----------
 
-customerWithAddr.persist(StorageLevel.MEMORY_ONLY_SER_2).count()
-
-# COMMAND ----------
-
-customerWithAddr.storageLevel
-
-# COMMAND ----------
-
-customerWithAddr.storageLevel
+customerWithAddr.persist(storageLevel=StorageLevel(True, True, False, True, 1)).count()
 
 # COMMAND ----------
 
